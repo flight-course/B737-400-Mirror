@@ -1,0 +1,4041 @@
+A
+1000
+ACF_SOUNDS
+
+###############################################
+# Boeing 737-800 sound bank                   #
+# 1.0.1                                       #
+# Daniela Rodriguez <dcareri@gmail.com>       #
+# Laminar Research                            #
+###############################################
+
+DISABLE_LEGACY_ALERT_SOUNDS
+
+# Spaces 
+#############################################################################################
+
+# -------------------- Cockpit ---------------------
+BEGIN_SOUND_SPACE
+	SOUND_INDEX 0
+	BLEND_DEPTH 0.1
+	AABB -1.310 0.000 -17.150 1.310 2.100 -14.100
+END_SOUND_SPACE
+
+# -------------------- Passenger cabin ---------------------
+BEGIN_SOUND_SPACE
+	SOUND_INDEX 1
+	BLEND_DEPTH 0.1
+	AABB -1.800 0.000 -14.300 1.800 2.300 15.000
+END_SOUND_SPACE
+
+# Snapshots 
+#############################################################################################
+
+# -------------------- Mute sounds during initialization ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /ducker
+	EVENT_START_COND sim/time/total_flight_time_sec > 0
+	EVENT_END_COND sim/time/total_flight_time_sec > 5
+END_SOUND_ATTACHMENT
+
+# -------------------- Cockpit ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /in_cockpit
+	VEH_XYZ 0.000 1.313 -15.883
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/operation/sound/inside_ratio[0] != 0
+	EVENT_END_COND sim/operation/sound/inside_ratio[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fwd port door (from cockpit) ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_fwd_cockpit
+	VEH_XYZ -1.235 1.570 -13.172
+	PARAM_DREF_IDX 14
+	EVENT_START_COND sim/flightmodel2/misc/custom_slider_ratio[14] > 0
+	EVENT_END_COND sim/flightmodel2/misc/custom_slider_ratio[14] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fwd starboard door (from cockpit) ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_fwd_cockpit
+	VEH_XYZ 1.235 1.570 -13.172
+	PARAM_DREF_IDX 16
+	EVENT_START_COND sim/flightmodel2/misc/custom_slider_ratio[16] > 0
+	EVENT_END_COND sim/flightmodel2/misc/custom_slider_ratio[16] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Cabin ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /in_cabin
+	VEH_XYZ 0.000 1.364 -14.334
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/operation/sound/inside_ratio[1] != 0
+	EVENT_END_COND sim/operation/sound/inside_ratio[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Aft port door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_aft
+	VEH_XYZ -1.267 1.325 13.630
+	PARAM_DREF_IDX 15
+	EVENT_START_COND sim/flightmodel2/misc/custom_slider_ratio[15] > 0
+	EVENT_END_COND sim/flightmodel2/misc/custom_slider_ratio[14] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Aft starboard door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_aft
+	VEH_XYZ 1.267 1.325 13.630
+	PARAM_DREF_IDX 17
+	EVENT_START_COND sim/flightmodel2/misc/custom_slider_ratio[17] > 0
+	EVENT_END_COND sim/flightmodel2/misc/custom_slider_ratio[17] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fwd port door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_fwd
+	VEH_XYZ -1.235 1.570 -13.172
+	PARAM_DREF_IDX 14
+	EVENT_START_COND sim/flightmodel2/misc/custom_slider_ratio[14] > 0
+	EVENT_END_COND sim/flightmodel2/misc/custom_slider_ratio[14] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fwd starboard door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_fwd
+	VEH_XYZ 1.235 1.570 -13.172
+	PARAM_DREF_IDX 16
+	EVENT_START_COND sim/flightmodel2/misc/custom_slider_ratio[16] > 0
+	EVENT_END_COND sim/flightmodel2/misc/custom_slider_ratio[16] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Port emergency door 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_emer
+	VEH_XYZ -1.569 1.284 -1.535
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/misc/door_open_ratio[1] > 0
+	EVENT_END_COND sim/flightmodel2/misc/door_open_ratio[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Port emergency door 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_emer
+	VEH_XYZ -1.602 1.284 -0.553
+	PARAM_DREF_IDX 2
+	EVENT_START_COND sim/flightmodel2/misc/door_open_ratio[2] > 0
+	EVENT_END_COND sim/flightmodel2/misc/door_open_ratio[2] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Starboard emergency door 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_emer
+	VEH_XYZ 1.569 1.284 -1.535
+	PARAM_DREF_IDX 5
+	EVENT_START_COND sim/flightmodel2/misc/door_open_ratio[5] > 0
+	EVENT_END_COND sim/flightmodel2/misc/door_open_ratio[5] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Starboard emergency door 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	SNAPSHOT_NAME /door_emer
+	VEH_XYZ 1.602 1.284 -0.553
+	PARAM_DREF_IDX 6
+	EVENT_START_COND sim/flightmodel2/misc/door_open_ratio[6] > 0
+	EVENT_END_COND sim/flightmodel2/misc/door_open_ratio[6] == 0
+END_SOUND_ATTACHMENT
+
+# Engines 
+#############################################################################################
+
+# -------------------- Engine 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/engine_1
+	VEH_PART engine 0
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/engines/N2_percent[0] != 0
+	EVENT_END_COND sim/flightmodel2/engines/N2_percent[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Reverser ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/reverser
+	VEH_PART engine 0
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/engines/thrust_reverser_deploy_ratio[0] > 0
+	EVENT_END_COND sim/flightmodel2/engines/thrust_reverser_deploy_ratio[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Starter ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/starter
+	VEH_PART engine 0
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/engines/starter_is_running[0] != 0
+	EVENT_END_COND sim/flightmodel2/engines/starter_is_running[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Start valve ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/start_valve
+	VEH_PART engine 0
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/engines/starter_is_running[0] != 0
+	EVENT_END_COND sim/flightmodel2/engines/starter_is_running[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Ignition ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/ignition
+	VEH_PART engine 0
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/engines/engine_is_burning_fuel[0] == 1
+	EVENT_END_COND sim/flightmodel2/engines/engine_is_burning_fuel[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Engine fire ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/engine_fire
+	VEH_PART engine 0
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/operation/failures/rel_engfir0 == 6
+	EVENT_END_COND sim/operation/failures/rel_engfir0 != 6
+END_SOUND_ATTACHMENT
+
+# -------------------- Engine 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/engine_2
+	VEH_PART engine 1
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/engines/N2_percent[1] != 0
+	EVENT_END_COND sim/flightmodel2/engines/N2_percent[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Reverser ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/reverser
+	VEH_PART engine 1
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/engines/thrust_reverser_deploy_ratio[1] > 0
+	EVENT_END_COND sim/flightmodel2/engines/thrust_reverser_deploy_ratio[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Starter ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/starter
+	VEH_PART engine 1
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/engines/starter_is_running[1] != 0
+	EVENT_END_COND sim/flightmodel2/engines/starter_is_running[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Start valve ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/start_valve
+	VEH_PART engine 1
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/engines/starter_is_running[1] != 0
+	EVENT_END_COND sim/flightmodel2/engines/starter_is_running[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Ignition ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/ignition
+	VEH_PART engine 1
+	EVENT_ALLOWED_FOR_AI
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/engines/engine_is_burning_fuel[1] == 1
+	EVENT_END_COND sim/flightmodel2/engines/engine_is_burning_fuel[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Engine fire ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/engines/engine_fire
+	VEH_PART engine 1
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/operation/failures/rel_engfir1 == 6
+	EVENT_END_COND sim/operation/failures/rel_engfir1 != 6
+END_SOUND_ATTACHMENT
+
+# Environment 
+#############################################################################################
+
+# -------------------- Wind (cockpit) ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/air/airflow
+	VEH_XYZ 0.000 1.188 -16.677
+	EVENT_START_COND sim/flightmodel/position/indicated_airspeed2 > 0
+	EVENT_START_COND sim/flightmodel/position/true_airspeed > 2
+	EVENT_AUTO_END_FROM_START_COND
+END_SOUND_ATTACHMENT
+
+# -------------------- Wind (cabin) ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/air/airflow_cabin
+	VEH_XYZ 0.000 0.000 0.000
+	EVENT_START_COND sim/flightmodel/position/indicated_airspeed2 > 0
+	EVENT_START_COND sim/flightmodel/position/true_airspeed > 2
+	EVENT_AUTO_END_FROM_START_COND
+END_SOUND_ATTACHMENT
+
+# -------------------- Gear airflow ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/air/gear_airflow
+	VEH_XYZ 0.000 -0.442 -16.623
+	EVENT_START_COND sim/flightmodel2/gear/deploy_ratio[0] > 0
+	EVENT_START_COND sim/flightmodel/position/true_airspeed > 2
+	EVENT_AUTO_END_FROM_START_COND
+END_SOUND_ATTACHMENT
+
+# -------------------- Spoiler drag ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/air/spoiler_drag
+	VEH_XYZ 0.000 0.000 0.000
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/wing/spoiler1_deg[0] != 0
+	EVENT_END_COND sim/flightmodel2/wing/spoiler1_deg[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Flaps drag ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/air/flaps_drag
+	VEH_XYZ 0.000 0.000 0.000
+	EVENT_START_COND sim/cockpit2/controls/flap_ratio != 0
+	EVENT_END_COND sim/cockpit2/controls/flap_ratio == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Front gear stowed ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/front_gear_stowed
+	VEH_XYZ 0.000 -0.442 -16.623
+	EVENT_START_COND DELTA=sim/flightmodel2/gear/deploy_ratio[0] < 0
+	EVENT_START_COND sim/flightmodel2/gear/deploy_ratio[0] < 0.6
+	EVENT_END_COND DELTA=sim/flightmodel2/gear/deploy_ratio[0] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Front gear up ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/front_gear_up
+	VEH_XYZ 0.000 -0.442 -16.623
+	EVENT_START_COND sim/flightmodel2/gear/tire_vertical_deflection_mtr[0] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/crash
+	VEH_XYZ 0.000 0.000 0.000
+	EVENT_START_COND sim/operation/failures/rel_wing1L == 6
+	EVENT_START_COND sim/flightmodel/position/y_agl < 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/crash
+	VEH_XYZ 0.000 0.000 0.000
+	EVENT_START_COND sim/operation/failures/rel_wing1R == 6
+	EVENT_START_COND sim/flightmodel/position/y_agl < 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/belly_land
+	VEH_XYZ 0.000 0.000 0.000
+	EVENT_START_COND sim/aircraft/parts/acf_gear_deploy[0] < 0.2
+	EVENT_START_COND sim/aircraft/parts/acf_gear_deploy[1] < 0.2
+	EVENT_START_COND sim/flightmodel/failures/onground_any == 1
+	EVENT_AUTO_END_FROM_START_COND
+END_SOUND_ATTACHMENT
+
+# -------------------- Tire roll 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/tire_roll
+	VEH_PART tire 0
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/gear/tire_rotation_speed_rad_sec[0] > 0.2
+	EVENT_END_COND sim/flightmodel2/gear/tire_rotation_speed_rad_sec[0] < 0.2
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/touch_down_1
+	VEH_PART tire 0
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/flightmodel2/gear/total_deflection_rate[0] > 1
+	EVENT_START_COND sim/flightmodel2/gear/tire_vertical_deflection_mtr[0] > 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Tire roll 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/tire_roll
+	VEH_PART tire 1
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/gear/tire_rotation_speed_rad_sec[1] > 0.2
+	EVENT_END_COND sim/flightmodel2/gear/tire_rotation_speed_rad_sec[1] < 0.2
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/touch_down_2
+	VEH_PART tire 1
+	PARAM_DREF_IDX 1
+	EVENT_START_COND sim/flightmodel2/gear/total_deflection_rate[1] > 1
+	EVENT_START_COND sim/flightmodel2/gear/tire_vertical_deflection_mtr[1] > 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Tire roll 3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/tire_roll
+	VEH_PART tire 2
+	PARAM_DREF_IDX 2
+	EVENT_START_COND sim/flightmodel2/gear/tire_rotation_speed_rad_sec[2] > 0.2
+	EVENT_END_COND sim/flightmodel2/gear/tire_rotation_speed_rad_sec[2] < 0.2
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/environment/ground/touch_down_3
+	VEH_PART tire 2
+	PARAM_DREF_IDX 2
+	EVENT_START_COND sim/flightmodel2/gear/total_deflection_rate[2] > 1
+	EVENT_START_COND sim/flightmodel2/gear/tire_vertical_deflection_mtr[2] > 0
+END_SOUND_ATTACHMENT
+
+# Equipment 
+#############################################################################################
+
+# -------------------- APU ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/apu/apu
+	VEH_XYZ 0.000 1.436 19.177
+	EVENT_ALLOWED_FOR_AI
+	EVENT_START_COND DELTA=sim/cockpit2/electrical/APU_N1_percent > 0
+	EVENT_END_COND DELTA=sim/cockpit2/electrical/APU_N1_percent < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- APU door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/apu/apu_door
+	VEH_XYZ 0.000 1.436 19.177
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/electrical/APU_door > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/electrical/APU_door <= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Pack 1 fan ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/air/packs_fan
+	VEH_XYZ -3.696 -0.069 -0.726
+	PARAM_DREF_IDX 0
+	EVENT_START_COND laminar/B738/sound/packs_flow[0] > 0.1
+	EVENT_END_COND laminar/B738/sound/packs_flow[0] < 0.1
+END_SOUND_ATTACHMENT
+
+# -------------------- Pack 2 fan ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/air/packs_fan
+	VEH_XYZ 3.696 -0.069 -0.726
+	PARAM_DREF_IDX 1
+	EVENT_START_COND laminar/B738/sound/packs_flow[1] > 0.1
+	EVENT_END_COND laminar/B738/sound/packs_flow[1] < 0.1
+END_SOUND_ATTACHMENT
+
+# -------------------- Hydraulic ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/pumps/hydraulic
+	VEH_XYZ 0.000 -0.260 1.701
+	EVENT_ALLOWED_FOR_AI
+	EVENT_START_COND sim/cockpit2/switches/electric_hydraulic_pump_on != 0
+	EVENT_END_COND sim/cockpit2/switches/electric_hydraulic_pump_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fuel pumps ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/pumps/fuel
+	VEH_XYZ -3.696 -0.069 -0.726
+	EVENT_ALLOWED_FOR_AI
+	EVENT_START_COND sim/cockpit2/fuel/fuel_tank_pump_on[0] == 1
+	EVENT_END_COND sim/cockpit2/fuel/fuel_tank_pump_on[0] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/pumps/fuel
+	VEH_XYZ 0.894 -1.232 -3.310
+	EVENT_START_COND sim/cockpit2/fuel/fuel_tank_pump_on[1] == 1
+	EVENT_END_COND sim/cockpit2/fuel/fuel_tank_pump_on[1] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/pumps/fuel
+	VEH_XYZ 3.696 -0.069 -0.726
+	EVENT_START_COND sim/cockpit2/fuel/fuel_tank_pump_on[2] == 1
+	EVENT_END_COND sim/cockpit2/fuel/fuel_tank_pump_on[2] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Flaps motor ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/flaps/flaps
+	VEH_XYZ 0.000 -0.260 1.701
+	PARAM_DREF_IDX 0
+	EVENT_START_COND ABS_DELTA=sim/flightmodel2/wing/flap1_deg[0] > 0
+	EVENT_END_COND ABS_DELTA=sim/flightmodel2/wing/flap1_deg[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Wipers ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/wipers/wipers
+	VEH_XYZ 0.000 1.101 -16.667
+	EVENT_START_COND sim/cockpit2/switches/wiper_speed > 0
+	EVENT_END_COND sim/cockpit2/switches/wiper_speed == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Cockpit door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/cockpit_open
+	VEH_XYZ -0.056 1.035 -14.496
+	PARAM_DREF_IDX 20
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[20] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[20] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/cockpit_close
+	VEH_XYZ -0.056 1.035 -14.496
+	PARAM_DREF_IDX 20
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[20] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[20] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fwd port door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_open
+	VEH_XYZ -1.235 1.570 -13.172
+	PARAM_DREF_IDX 14
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[14] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[14] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_close
+	VEH_XYZ -1.235 1.570 -13.172
+	PARAM_DREF_IDX 14
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[14] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[14] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fwd starboard door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_open
+	VEH_XYZ 1.235 1.570 -13.172
+	PARAM_DREF_IDX 16
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[16] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[16] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_close
+	VEH_XYZ 1.235 1.570 -13.172
+	PARAM_DREF_IDX 16
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[16] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[16] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Aft port door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_open
+	VEH_XYZ -1.267 1.325 13.630
+	PARAM_DREF_IDX 15
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[15] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[15] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_close
+	VEH_XYZ -1.267 1.325 13.630
+	PARAM_DREF_IDX 15
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[15] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[15] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Aft starboard door ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_open
+	VEH_XYZ 1.267 1.325 13.630
+	PARAM_DREF_IDX 17
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[17] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[17] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/door_close
+	VEH_XYZ 1.267 1.325 13.630
+	PARAM_DREF_IDX 17
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[17] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/custom_slider_ratio[17] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Port emer door 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_open
+	VEH_XYZ -1.569 1.284 -1.535
+	PARAM_DREF_IDX 1
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[1] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[1] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_close
+	VEH_XYZ -1.569 1.284 -1.535
+	PARAM_DREF_IDX 1
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[1] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[1] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Port emer door 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_open
+	VEH_XYZ -1.602 1.284 -0.553
+	PARAM_DREF_IDX 2
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[2] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[2] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_close
+	VEH_XYZ -1.602 1.284 -0.553
+	PARAM_DREF_IDX 2
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[2] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[2] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Starboard emer door 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_open
+	VEH_XYZ 1.569 1.284 -1.535
+	PARAM_DREF_IDX 5
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[5] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[5] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_close
+	VEH_XYZ 1.569 1.284 -1.535
+	PARAM_DREF_IDX 5
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[5] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[5] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Starboard emer door 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_open
+	VEH_XYZ 1.602 1.284 -0.553
+	PARAM_DREF_IDX 6
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[6] > 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[6] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/doors/emer_close
+	VEH_XYZ 1.602 1.284 -0.553
+	PARAM_DREF_IDX 6
+	EVENT_START_COND DELTA=sim/flightmodel2/misc/door_open_ratio[6] < 0
+	EVENT_END_COND DELTA=sim/flightmodel2/misc/door_open_ratio[6] >= 0
+END_SOUND_ATTACHMENT
+
+# Cockpit 
+#############################################################################################
+
+# -------------------- Battery ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/avionics/battery
+	VEH_XYZ 0.000 1.488 -15.718
+	EVENT_START_COND sim/cockpit2/electrical/battery_on[0] != 0
+	EVENT_END_COND sim/cockpit2/electrical/battery_on[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Avionics ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/avionics/avionics
+	VEH_XYZ 0.000 0.991 -16.326
+	EVENT_START_COND sim/cockpit2/switches/avionics_power_on == 1
+	EVENT_END_COND sim/cockpit2/switches/avionics_power_on != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Trimwheel ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/trim/trimwheel
+	VEH_XYZ -0.097 0.671 -15.835
+	EVENT_START_COND ABS_DELTA=sim/flightmodel2/controls/elevator_trim > 0.002
+	EVENT_END_COND ABS_DELTA=sim/flightmodel2/controls/elevator_trim < 0.002
+END_SOUND_ATTACHMENT
+
+# -------------------- Trimwheel start ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/trim/trimwheel_start
+	VEH_XYZ -0.097 0.671 -15.835
+	EVENT_START_COND ABS_DELTA=sim/flightmodel2/controls/elevator_trim > 0.002
+	EVENT_END_COND ABS_DELTA=sim/flightmodel2/controls/elevator_trim < 0.002
+END_SOUND_ATTACHMENT
+
+# -------------------- Trimwheel stop ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/trim/trimwheel_stop
+	VEH_XYZ -0.097 0.671 -15.835
+	EVENT_START_COND ABS_DELTA=sim/flightmodel2/controls/elevator_trim < 0.002
+END_SOUND_ATTACHMENT
+
+# -------------------- Parking brake release ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/parking_brake_release
+	VEH_XYZ -0.080 0.792 -15.858
+	EVENT_START_COND sim/cockpit2/controls/parking_brake_ratio == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Parking brake set ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/parking_brake_set
+	VEH_XYZ -0.080 0.792 -15.858
+	EVENT_START_COND sim/cockpit2/controls/parking_brake_ratio == 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Flaps lever up ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/flaps_lever_up
+	VEH_XYZ 0.107 0.798 -15.989
+	EVENT_CMND_HOLD_CUE sim/flight_controls/flaps_up
+END_SOUND_ATTACHMENT
+
+# -------------------- Flaps lever down ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/flaps_lever_down
+	VEH_XYZ 0.107 0.798 -15.989
+	EVENT_CMND_HOLD_CUE sim/flight_controls/flaps_down
+END_SOUND_ATTACHMENT
+
+# -------------------- Flaps lever up ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/flaps_lever_up
+	VEH_XYZ 0.107 0.798 -15.989
+	EVENT_START_COND laminar/B738/handles/flap_lever/stop_pos == 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Flaps lever down ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/flaps_lever_down
+	VEH_XYZ 0.107 0.798 -15.989
+	EVENT_START_COND laminar/B738/handles/flap_lever/stop_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Gear lever up ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/gear_lever_up
+	VEH_XYZ 0.164 1.015 -16.334
+	EVENT_START_COND laminar/B738/gear_handle/position == 2
+END_SOUND_ATTACHMENT
+
+# -------------------- Gear lever down ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/gear_lever_down
+	VEH_XYZ 0.164 1.015 -16.334
+	EVENT_START_COND laminar/B738/gear_handle/position == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Gear lever center ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/gear_lever_center
+	VEH_XYZ 0.164 1.015 -16.334
+	EVENT_START_COND laminar/B738/gear_handle/position == 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Speedbrake click ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/speedbrake_click
+	VEH_XYZ -0.119 0.818 -16.064
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/controls/speedbrake_ratio > 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fuel cutoff 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/fuel_cutoff_up
+	VEH_XYZ 0.000 0.800 -15.837
+	PARAM_DREF_IDX 0
+	EVENT_START_COND DELTA=laminar/B738/sound/cond_lever[0] > 0
+	EVENT_END_COND DELTA=laminar/B738/sound/cond_lever[0] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/fuel_cutoff_dn
+	VEH_XYZ 0.000 0.800 -15.837
+	PARAM_DREF_IDX 0
+	EVENT_START_COND DELTA=laminar/B738/sound/cond_lever[0] < 0
+	EVENT_END_COND DELTA=laminar/B738/sound/cond_lever[0] >= 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fuel cutoff 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/fuel_cutoff_up
+	VEH_XYZ 0.000 0.800 -15.837
+	PARAM_DREF_IDX 1
+	EVENT_START_COND DELTA=laminar/B738/sound/cond_lever[1] > 0
+	EVENT_END_COND DELTA=laminar/B738/sound/cond_lever[1] <= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/fuel_cutoff_dn
+	VEH_XYZ 0.000 0.800 -15.837
+	PARAM_DREF_IDX 1
+	EVENT_START_COND DELTA=laminar/B738/sound/cond_lever[1] < 0
+	EVENT_END_COND DELTA=laminar/B738/sound/cond_lever[1] >= 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/air/oxy_test
+	VEH_XYZ -0.831 0.684 -16.036
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/capt_oxy_test
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/air/oxy_test
+	VEH_XYZ 0.831 0.684 -16.036
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/fo_oxy_test
+END_SOUND_ATTACHMENT
+
+# -------------------- Generator ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/relays/generator
+	VEH_XYZ -0.775 1.371 -15.052
+	EVENT_START_COND laminar/B738/annunciator/gen_off_bus1 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Generator ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/relays/generator
+	VEH_XYZ -0.775 1.371 -15.052
+	EVENT_START_COND laminar/B738/annunciator/gen_off_bus2 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Handle capt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/handle_top
+	VEH_XYZ -0.510 1.420 -15.966
+	EVENT_START_COND laminar/B738/adjust/capt/handle_pos == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/handle_top
+	VEH_XYZ -0.510 1.420 -15.966
+	EVENT_START_COND laminar/B738/adjust/capt/handle_pos == 90
+END_SOUND_ATTACHMENT
+
+# -------------------- Handle f/o ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/handle_top
+	VEH_XYZ 0.510 1.420 -15.966
+	EVENT_START_COND laminar/B738/adjust/fo/handle_pos == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/handle_top
+	VEH_XYZ 0.510 1.420 -15.966
+	EVENT_START_COND laminar/B738/adjust/fo/handle_pos == 90
+END_SOUND_ATTACHMENT
+
+# -------------------- Throttle levers ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/throttle_lever_idle
+	VEH_XYZ -0.014 0.778 -16.063
+	EVENT_START_COND sim/cockpit2/engine/actuators/throttle_ratio[0] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/throttle_lever_idle
+	VEH_XYZ -0.014 0.778 -16.063
+	EVENT_START_COND sim/cockpit2/engine/actuators/throttle_ratio[1] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/throttle_lever_full
+	VEH_XYZ 0.014 0.778 -16.063
+	EVENT_START_COND sim/cockpit2/engine/actuators/throttle_ratio[0] == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/levers/throttle_lever_full
+	VEH_XYZ 0.014 0.778 -16.063
+	EVENT_START_COND sim/cockpit2/engine/actuators/throttle_ratio[1] == 1
+END_SOUND_ATTACHMENT
+
+# Alerts 
+#############################################################################################
+
+# -------------------- Fasten belts ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/fasten_belts
+	VEH_XYZ 0.000 0.000 0.000
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/fasten_seat_belts > 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Ground call ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/ground_call
+	VEH_XYZ 0.000 -0.442 -16.623
+	EVENT_START_COND FJS/727/Radios/GndCallButton == 1
+	EVENT_END_COND FJS/727/Radios/GndCallButton != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Altitude warn ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/altitude_warn
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND sim/cockpit2/gauges/indicators/baro_altimeter_alert_lit_pilot != 0
+	EVENT_START_COND sim/cockpit2/electrical/battery_on[0] == 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Fire ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/fire
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/B738/annunciator/fire_bell_annun != 0
+	EVENT_END_COND laminar/B738/annunciator/fire_bell_annun == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Stall shaker ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/stall_shaker
+	VEH_PART cockpit 0
+	PARAM_DREF_IDX 0
+	EVENT_START_COND sim/cockpit2/annunciators/stall_warning == 1
+	EVENT_END_COND sim/cockpit2/annunciators/stall_warning != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Overspeed ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/overspeed
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/B738/sound/overspeed_warn == 1
+	EVENT_END_COND laminar/B738/sound/overspeed_warn != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Take off config warning ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/config_warn
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/B738/annunciator/takeoff_config == 1
+	EVENT_END_COND laminar/B738/annunciator/takeoff_config != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Cabin altitude warning ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/config_warn
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND sim/cockpit2/annunciators/cabin_altitude_12500 == 1
+	EVENT_END_COND sim/cockpit2/annunciators/cabin_altitude_12500 != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Gear horn ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/gear_horn
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND sim/cockpit2/annunciators/gear_warning_aural != 0
+	EVENT_END_COND sim/cockpit2/annunciators/gear_warning_aural == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Gear horn test ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/gear_horn
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/B738/gear_lock_ovrd/position == 1
+	EVENT_START_COND sim/flightmodel/failures/onground_any == 1
+	EVENT_AUTO_END_FROM_START_COND
+END_SOUND_ATTACHMENT
+
+# -------------------- Ap disconnect ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/ap_disconnect
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND sim/cockpit/warnings/annunciators/autopilot_disconnect == 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Inner marker ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/inner_marker
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/inner_marker_lit == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/inner_marker_lit != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Middle marker ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/middle_marker
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/middle_marker_lit == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/middle_marker_lit != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Outer marker ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/outer_marker
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/outer_marker_lit == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/outer_marker_lit != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav 1 morse ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_short
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_nav1 == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_nav1 != 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_long
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_nav1 == 2
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_nav1 != 2
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav 2 morse ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_short
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_nav2 == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_nav2 != 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_long
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_nav2 == 2
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_nav2 != 2
+END_SOUND_ATTACHMENT
+
+# -------------------- Adf 1 morse ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_short
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_adf1 == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_adf1 != 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_long
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_adf1 == 2
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_adf1 != 2
+END_SOUND_ATTACHMENT
+
+# -------------------- Adf 2 morse ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_short
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_adf2 == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_adf2 != 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1020_long
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_adf2 == 2
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_adf2 != 2
+END_SOUND_ATTACHMENT
+
+# -------------------- Dme morse ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1350_short
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_dme == 1
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_dme != 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/alerts/morse_1350_long
+	VEH_XYZ -0.423 1.577 -15.473
+	EVENT_START_COND sim/cockpit2/radios/indicators/morse_id_tone_dme == 2
+	EVENT_END_COND sim/cockpit2/radios/indicators/morse_id_tone_dme != 2
+END_SOUND_ATTACHMENT
+
+# GPWS 
+#############################################################################################
+
+# -------------------- Callout: pull_up ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/pull_up
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 1
+	EVENT_END_COND laminar/gpws/message != 1
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: minimums ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/minimums
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 7
+	EVENT_END_COND laminar/gpws/message != 7
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: too_low_terrain ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/too_low_terrain
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 10
+	EVENT_END_COND laminar/gpws/message != 10
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: windshear ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/windshear
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 11
+	EVENT_END_COND laminar/gpws/message != 11
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 10ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/10ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 12
+	EVENT_END_COND laminar/gpws/message != 12
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 20ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/20ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 13
+	EVENT_END_COND laminar/gpws/message != 13
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 30ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/30ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 14
+	EVENT_END_COND laminar/gpws/message != 14
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 40ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/40ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 15
+	EVENT_END_COND laminar/gpws/message != 15
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 50ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/50ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 16
+	EVENT_END_COND laminar/gpws/message != 16
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 100ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/100ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 17
+	EVENT_END_COND laminar/gpws/message != 17
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 200ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/200ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 18
+	EVENT_END_COND laminar/gpws/message != 18
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 300ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/300ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 19
+	EVENT_END_COND laminar/gpws/message != 19
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 400ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/400ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 20
+	EVENT_END_COND laminar/gpws/message != 20
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 500ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/500ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 21
+	EVENT_END_COND laminar/gpws/message != 21
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: 1000ft ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/1000ft
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 22
+	EVENT_END_COND laminar/gpws/message != 22
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: too_low_flaps ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/too_low_flaps
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 23
+	EVENT_END_COND laminar/gpws/message != 23
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: too_low_gear ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/too_low_gear
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 24
+	EVENT_END_COND laminar/gpws/message != 24
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: sinkrate ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/sinkrate
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 25
+	EVENT_END_COND laminar/gpws/message != 25
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: dont_sink ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/dont_sink
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 26
+	EVENT_END_COND laminar/gpws/message != 26
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: glideslope ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/glideslope
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 27
+	EVENT_END_COND laminar/gpws/message != 27
+END_SOUND_ATTACHMENT
+
+# -------------------- Callout: bank_angle ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/egpws/bank_angle
+	VEH_XYZ 0.268 0.502 -16.087
+	EVENT_START_COND laminar/gpws/message == 28
+	EVENT_END_COND laminar/gpws/message != 28
+END_SOUND_ATTACHMENT
+
+# Switches: aft overhead 
+#############################################################################################
+
+# -------------------- ELT ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.232 1.715 -15.256
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/elt > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/elt == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ -0.232 1.715 -15.256
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[6] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ -0.232 1.715 -15.256
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[6] < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Dome white ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.000 1.690 -15.392
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/cockpit_dome_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/cockpit_dome_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.100 1.773 -15.153
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/obs/mic_push1
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.100 1.773 -15.153
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/obs/mic_push2
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.100 1.773 -15.153
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/obs/mic_push3
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic int ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.100 1.773 -15.153
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/obs/mic_push4
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic cabin ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.100 1.773 -15.153
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/obs/mic_push5
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic pa ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.100 1.773 -15.153
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/obs/mic_push6
+END_SOUND_ATTACHMENT
+
+# -------------------- Fadec 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_sel
+	VEH_XYZ 0.110 1.731 -15.270
+	EVENT_START_COND sim/cockpit/engine/fadec_on[0] == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_desel
+	VEH_XYZ 0.110 1.731 -15.270
+	EVENT_START_COND sim/cockpit/engine/fadec_on[0] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.110 1.731 -15.270
+	EVENT_START_COND laminar/B738/button_switch/cover_position[0] > 0.8
+	CUE_TRIGGER_COND laminar/B738/button_switch/cover_position[0] < 0.2
+END_SOUND_ATTACHMENT
+
+# -------------------- Fadec 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_sel
+	VEH_XYZ 0.110 1.731 -15.270
+	EVENT_START_COND sim/cockpit/engine/fadec_on[1] == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_desel
+	VEH_XYZ 0.110 1.731 -15.270
+	EVENT_START_COND sim/cockpit/engine/fadec_on[1] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.110 1.731 -15.270
+	EVENT_START_COND laminar/B738/button_switch/cover_position[1] > 0.8
+	CUE_TRIGGER_COND laminar/B738/button_switch/cover_position[1] < 0.2
+END_SOUND_ATTACHMENT
+
+# -------------------- Pass oxygen ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ 0.162 1.726 -15.297
+	EVENT_START_COND ABS_DELTA=laminar/B738/one_way_switch/pax_oxy_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/one_way_switch/pax_oxy_pos == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ 0.162 1.726 -15.297
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[7] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ 0.162 1.726 -15.297
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[7] < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Ovsp test 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.256 1.709 -15.270
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/mach_warn_test1_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Ovsp test 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.256 1.709 -15.270
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/mach_warn_test2_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Stall test 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.256 1.709 -15.270
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/stall_test1_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Stall test 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.256 1.709 -15.270
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/stall_test2_press
+END_SOUND_ATTACHMENT
+
+# Switches: overhead 
+#############################################################################################
+
+# -------------------- Yaw damper ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ -0.259 1.654 -15.562
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/yaw_damper_on > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/yaw_damper_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav source ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ -0.259 1.654 -15.562
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/vhf_nav_source > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/vhf_nav_source == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fuel pumps ctr ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ -0.254 1.476 -15.960
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/fuel/fuel_tank_pump_on[1] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/fuel/fuel_tank_pump_on[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fuel pumps 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ -0.254 1.476 -15.960
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/fuel/fuel_tank_pump_on[0] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/fuel/fuel_tank_pump_on[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fuel pumps 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ -0.254 1.476 -15.960
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/fuel/fuel_tank_pump_on[2] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/fuel/fuel_tank_pump_on[2] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Volt meter dc ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ -0.113 1.599 -15.639
+	EVENT_START_COND ABS_DELTA=laminar/B738/knob/dc_power > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/knob/dc_power == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Volt meter ac ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ -0.113 1.599 -15.639
+	EVENT_START_COND ABS_DELTA=laminar/B738/knob/ac_power > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/knob/ac_power == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Cab util ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ -0.113 1.599 -15.639
+	EVENT_START_COND ABS_DELTA=laminar/B738/electrical/cab_util_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/electrical/cab_util_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Ife ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ -0.113 1.599 -15.639
+	EVENT_START_COND ABS_DELTA=laminar/B738/electrical/ife_switch_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/electrical/ife_switch_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Battery ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.147 1.597 -15.677
+	EVENT_START_COND ABS_DELTA=sim/cockpit/electrical/battery_on > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/electrical/battery_on == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ -0.147 1.597 -15.677
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[0] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ -0.147 1.597 -15.677
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[0] < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Stby power ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND ABS_DELTA=sim/cockpit/electrical/battery_array_on[1] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/electrical/battery_array_on[1] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[1] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[1] < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Drive disc 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND ABS_DELTA=laminar/B738/one_way_switch/drive_disconnect1_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/one_way_switch/drive_disconnect1_pos == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[2] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[2] < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Drive disc 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND ABS_DELTA=laminar/B738/one_way_switch/drive_disconnect2_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/one_way_switch/drive_disconnect2_pos == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[3] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ -0.112 1.535 -15.758
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[3] < 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ -0.112 1.421 -15.829
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[4] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ -0.112 1.421 -15.829
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[4] < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Bus transfer sw ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.112 1.421 -15.829
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/electrical/cross_tie > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/electrical/cross_tie == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Grd pwr ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/toggle_switch/gpu_pos_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/toggle_switch/gpu_pos_dn
+END_SOUND_ATTACHMENT
+
+# -------------------- Gen 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/gen1_dn
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/gen1_up
+END_SOUND_ATTACHMENT
+
+# -------------------- APU Gen L ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/apuL_dn
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/apuL_up
+END_SOUND_ATTACHMENT
+
+# -------------------- APU Gen R ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/apuR_dn
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/apuR_up
+END_SOUND_ATTACHMENT
+
+# -------------------- Gen 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/gen2_dn
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_hold
+	VEH_XYZ -0.112 1.488 -15.927
+	EVENT_CMND_HOLD_CUE laminar/B738/switch/gen2_up
+END_SOUND_ATTACHMENT
+
+# -------------------- Wipers ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ -0.038 1.440 -15.967
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/wiper_speed > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/wiper_speed == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Emer exit lights ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ 0.001 1.528 -15.839
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/emer_exit_lights > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/emer_exit_lights == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_open
+	VEH_XYZ 0.001 1.528 -15.839
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[5] > 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/guard_close
+	VEH_XYZ 0.001 1.528 -15.839
+	EVENT_START_COND DELTA=laminar/B738/button_switch/guard_cover_pos[5] < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fasten belts ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.001 1.528 -15.839
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/annunciators/fasten_seatbelt > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/annunciators/fasten_seatbelt == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Window heat ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.106 1.669 -15.529
+	EVENT_START_COND ABS_DELTA=sim/cockpit/switches/anti_ice_window_heat > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/switches/anti_ice_window_heat == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Pitot heat 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.106 1.669 -15.529
+	EVENT_START_COND ABS_DELTA=sim/cockpit/switches/pitot_heat_on > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/switches/pitot_heat_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Pitot heat 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.106 1.669 -15.529
+	EVENT_START_COND ABS_DELTA=sim/cockpit/switches/pitot_heat_on2 > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/switches/pitot_heat_on2 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Wing anti ice ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.104 1.609 -15.660
+	EVENT_START_COND ABS_DELTA=sim/cockpit/switches/anti_ice_surf_heat > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/switches/anti_ice_surf_heat == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Eng 1 anti ice ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.104 1.609 -15.660
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/ice/ice_inlet_heat_on_per_engine[0] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/ice/ice_inlet_heat_on_per_engine[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Eng 2 anti ice ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.104 1.609 -15.660
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/ice/ice_inlet_heat_on_per_engine[1] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/ice/ice_inlet_heat_on_per_engine[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Hyd pump ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.116 1.575 -15.750
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/hydro_pumps_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/hydro_pumps_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Hyd elec pump ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.116 1.575 -15.750
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/electric_hydraulic_pump_on > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/electric_hydraulic_pump_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- L recirc ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=laminar/B738/pressurization/l_recirc_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/pressurization/l_recirc_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- R recirc ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=laminar/B738/pressurization/r_recirc_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/pressurization/r_recirc_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Pack L ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=laminar/B738/pressurization/l_pack_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/pressurization/l_pack_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Pack R ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=laminar/B738/pressurization/r_pack_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/pressurization/r_pack_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Isol valve ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=laminar/B738/pressurization/iso_valve_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/pressurization/iso_valve_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Bleed trip reset ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/bleed_trip_reset
+END_SOUND_ATTACHMENT
+
+# -------------------- Bleed air 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/bleedair/actuators/engine_bleed_sov[0] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/bleedair/actuators/engine_bleed_sov[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Bleed air 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/bleedair/actuators/engine_bleed_sov[1] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/bleedair/actuators/engine_bleed_sov[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Bleed air apu ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white
+	VEH_XYZ 0.259 1.562 -15.767
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/bleedair/actuators/apu_bleed > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/bleedair/actuators/apu_bleed == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Flt alt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_mcp_single
+	VEH_XYZ 0.253 1.494 -15.904
+	EVENT_START_COND ABS_DELTA=sim/cockpit/pressure/max_allowable_altitude > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/pressure/max_allowable_altitude == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Land alt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_mcp_single
+	VEH_XYZ 0.253 1.494 -15.904
+	EVENT_START_COND ABS_DELTA=laminar/B738/pressurization/knobs/landing_alt > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/pressurization/knobs/landing_alt == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Landing lt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_landing
+	VEH_XYZ -0.219 1.423 -16.042
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[0] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[0] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_landing
+	VEH_XYZ -0.219 1.423 -16.042
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[1] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[1] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_landing
+	VEH_XYZ -0.219 1.423 -16.042
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[2] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[2] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_landing
+	VEH_XYZ -0.219 1.423 -16.042
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[3] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/landing_lights_switch[3] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.219 1.423 -16.042
+	EVENT_START_COND ABS_DELTA=laminar/B738/spring_switch/landing_lights_all_on > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/spring_switch/landing_lights_all_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Rwy turnoff lt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ -0.122 1.417 -16.030
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[2] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[2] == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ -0.122 1.417 -16.030
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[3] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[3] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Taxi lt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ -0.122 1.417 -16.030
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[4] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[4] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- APU start ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_apu_off
+	VEH_XYZ -0.065 1.417 -16.043
+	EVENT_START_COND laminar/B738/spring_toggle_switch/APU_start_pos == 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_apu_on
+	VEH_XYZ -0.065 1.417 -16.043
+	EVENT_START_COND laminar/B738/spring_toggle_switch/APU_start_pos == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_apu_start
+	VEH_XYZ -0.065 1.417 -16.043
+	EVENT_START_COND laminar/B738/spring_toggle_switch/APU_start_pos == 2
+END_SOUND_ATTACHMENT
+
+# -------------------- Eng 2 start ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ 0.101 1.432 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_2 == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ 0.101 1.432 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_2 == 2
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ 0.101 1.432 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_2 == -1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ 0.101 1.432 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_2 == 0
+	EVENT_START_COND DELTA=laminar/B738/spring_knob/starter_2 < 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white_starter
+	VEH_XYZ 0.101 1.432 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_2 == 0
+	EVENT_START_COND DELTA=laminar/B738/spring_knob/starter_2 > 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Eng 1 start ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ -0.016 1.434 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_1 == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ -0.016 1.434 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_1 == 2
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ -0.016 1.434 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_1 == -1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ -0.016 1.434 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_1 == 0
+	EVENT_START_COND DELTA=laminar/B738/spring_knob/starter_1 < 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white_starter
+	VEH_XYZ -0.016 1.434 -16.045
+	EVENT_START_COND laminar/B738/spring_knob/starter_1 == 0
+	EVENT_START_COND DELTA=laminar/B738/spring_knob/starter_1 > 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Logo lt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.231 1.415 -15.993
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[1] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[1] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Strobe ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.231 1.415 -15.993
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/navigation_lights_on > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/navigation_lights_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Beacon ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.231 1.415 -15.993
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/beacon_on > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/beacon_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Wing lt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.231 1.415 -15.993
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[0] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Wheel lt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.231 1.415 -15.993
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[5] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/generic_lights_switch[5] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Compass brt sw ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ 0.000 1.293 -16.077
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/compass_brightness_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/compass_brightness_pos == 0
+END_SOUND_ATTACHMENT
+
+# Switches: glareshield / EFIS capt 
+#############################################################################################
+
+# -------------------- Fire bell cutout capt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_master_hold
+	VEH_XYZ -0.468 1.202 -16.142
+	EVENT_START_COND laminar/B738/push_button/fire_bell_cutout1 == 1
+	CUE_TRIGGER_COND laminar/B738/push_button/fire_bell_cutout1 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Master caution capt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_master_hold
+	VEH_XYZ -0.468 1.202 -16.142
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/master_caution1
+END_SOUND_ATTACHMENT
+
+# -------------------- Minimums ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/gauges/actuators/radio_altimeter_bug_ft_pilot > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/gauges/actuators/radio_altimeter_bug_ft_pilot == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Minimums reset ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/rst_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Vor 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=laminar/B738/EFIS_control/capt/vor1_off_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/EFIS_control/capt/vor1_off_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Map mode ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_small
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=sim/cockpit/switches/EFIS_map_submode > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/switches/EFIS_map_submode == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Map center ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/ctr_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Range ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_small
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=sim/cockpit/switches/EFIS_map_range_selector > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit/switches/EFIS_map_range_selector == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- TFC ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/tfc_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Vor 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=laminar/B738/EFIS_control/capt/vor2_off_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/EFIS_control/capt/vor2_off_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Baro mode ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_small
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=laminar/B738/EFIS_control/capt/baro_in_hpa > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/EFIS_control/capt/baro_in_hpa == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Baro ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Baro std ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/std_press
+END_SOUND_ATTACHMENT
+
+# -------------------- WXR ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/wxr_press
+END_SOUND_ATTACHMENT
+
+# -------------------- STA ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/sta_press
+END_SOUND_ATTACHMENT
+
+# -------------------- WPT ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/wpt_press
+END_SOUND_ATTACHMENT
+
+# -------------------- ARPT ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/arpt_press
+END_SOUND_ATTACHMENT
+
+# -------------------- DATA ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/data_press
+END_SOUND_ATTACHMENT
+
+# -------------------- POS ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/pos_press
+END_SOUND_ATTACHMENT
+
+# -------------------- TERR ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/terr_press
+END_SOUND_ATTACHMENT
+
+# -------------------- FPV ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/fpv_press
+END_SOUND_ATTACHMENT
+
+# -------------------- MTRS ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ -0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/capt/push_button/mtrs_press
+END_SOUND_ATTACHMENT
+
+# Switches: MCP 
+#############################################################################################
+
+# -------------------- CRS ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_mcp_single
+	VEH_XYZ -0.207 1.198 -16.171
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/radios/actuators/hsi_obs_deg_mag_pilot > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/radios/actuators/hsi_obs_deg_mag_pilot == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- FD Capt ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ -0.189 1.186 -16.182
+	EVENT_START_COND ABS_DELTA=laminar/B738/autopilot/capt_fd_cmd_pfd_status > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/autopilot/capt_fd_cmd_pfd_status == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- A/T arm ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.189 1.186 -16.182
+	EVENT_START_COND ABS_DELTA=laminar/B738/autopilot/autothrottle_arm_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/autopilot/autothrottle_arm_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Speed ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.157 1.184 -16.175
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/speed_press
+END_SOUND_ATTACHMENT
+
+# -------------------- C/O ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ -0.157 1.184 -16.175
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/change_over_press
+END_SOUND_ATTACHMENT
+
+# -------------------- N1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.180 1.184 -16.174
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/n1_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Airspeed ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_mcp_single
+	VEH_XYZ -0.114 1.201 -16.172
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/autopilot/airspeed_dial_kts_mach > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/autopilot/airspeed_dial_kts_mach == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- VNAV ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.079 1.210 -16.177
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/vnav_press
+END_SOUND_ATTACHMENT
+
+# -------------------- LVL CHG ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.079 1.210 -16.177
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/lvl_chg_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Bank angle ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_small
+	VEH_XYZ -0.050 1.191 -16.185
+	EVENT_START_COND ABS_DELTA=laminar/B738/autopilot/bank_angle_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/autopilot/bank_angle_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- HDG ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.050 1.191 -16.185
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/hdg_sel_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Heading ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_mcp_single
+	VEH_XYZ -0.050 1.191 -16.185
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/autopilot/heading_dial_deg_mag_pilot > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/autopilot/heading_dial_deg_mag_pilot == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- LNAV ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.016 1.203 -16.184
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/lnav_press
+END_SOUND_ATTACHMENT
+
+# -------------------- VOR/LOC ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.016 1.203 -16.184
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/vorloc_press
+END_SOUND_ATTACHMENT
+
+# -------------------- APP ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ -0.016 1.203 -16.184
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/app_press
+END_SOUND_ATTACHMENT
+
+# -------------------- ALT HLD ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ 0.038 1.198 -16.181
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/alt_hld_press
+END_SOUND_ATTACHMENT
+
+# -------------------- VS ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ 0.038 1.198 -16.181
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/vs_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Altitude ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_mcp_single
+	VEH_XYZ 0.038 1.198 -16.181
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/autopilot/altitude_dial_ft > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/autopilot/altitude_dial_ft == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Vertical speed ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_vs_single
+	VEH_XYZ 0.107 1.192 -16.188
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/autopilot/vvi_dial_fpm > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/autopilot/vvi_dial_fpm == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- CMD A ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ 0.151 1.206 -16.168
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/cmd_a_press
+END_SOUND_ATTACHMENT
+
+# -------------------- CMD B ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ 0.151 1.206 -16.168
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/cmd_b_press
+END_SOUND_ATTACHMENT
+
+# -------------------- CWS A ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ 0.151 1.206 -16.168
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/cws_a_press
+END_SOUND_ATTACHMENT
+
+# -------------------- CWS B ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mcp_hold
+	VEH_XYZ 0.151 1.206 -16.168
+	EVENT_CMND_HOLD_CUE laminar/B738/autopilot/cws_b_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Disco ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ 0.151 1.206 -16.168
+	EVENT_START_COND ABS_DELTA=laminar/B738/autopilot/disconnect_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/autopilot/disconnect_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- CRS ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_mcp_single
+	VEH_XYZ 0.189 1.213 -16.162
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/radios/actuators/hsi_obs_deg_mag_copilot > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/radios/actuators/hsi_obs_deg_mag_copilot == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- FD FO ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ 0.183 1.185 -16.179
+	EVENT_START_COND ABS_DELTA=laminar/B738/autopilot/fo_fd_cmd_pfd_status > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/autopilot/fo_fd_cmd_pfd_status == 0
+END_SOUND_ATTACHMENT
+
+# Switches: glareshield / EFIS first officer 
+#############################################################################################
+
+# -------------------- Fire bell cutout fo ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_master_hold
+	VEH_XYZ 0.468 1.202 -16.142
+	EVENT_START_COND laminar/B738/push_button/fire_bell_cutout2 == 1
+	CUE_TRIGGER_COND laminar/B738/push_button/fire_bell_cutout2 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Master caution fo ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_master_hold
+	VEH_XYZ 0.468 1.202 -16.142
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/master_caution2
+END_SOUND_ATTACHMENT
+
+# -------------------- Minimums ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/gauges/actuators/radio_altimeter_bug_ft_copilot > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/gauges/actuators/radio_altimeter_bug_ft_copilot == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Minimums reset ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/rst_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Vor 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=laminar/B738/EFIS_control/fo/vor1_off_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/EFIS_control/fo/vor1_off_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Map center ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/ctr_press
+END_SOUND_ATTACHMENT
+
+# -------------------- TFC ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/tfc_press
+END_SOUND_ATTACHMENT
+
+# -------------------- Vor 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=laminar/B738/EFIS_control/fo/vor2_off_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/EFIS_control/fo/vor2_off_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Baro mode ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_small
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=laminar/B738/EFIS_control/fo/baro_in_hpa > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/EFIS_control/fo/baro_in_hpa == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Baro ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/gauges/actuators/barometer_setting_in_hg_copilot == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Baro std ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/std_press
+END_SOUND_ATTACHMENT
+
+# -------------------- WXR ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/wxr_press
+END_SOUND_ATTACHMENT
+
+# -------------------- STA ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/sta_press
+END_SOUND_ATTACHMENT
+
+# -------------------- WPT ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/wpt_press
+END_SOUND_ATTACHMENT
+
+# -------------------- ARPT ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/arpt_press
+END_SOUND_ATTACHMENT
+
+# -------------------- DATA ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/data_press
+END_SOUND_ATTACHMENT
+
+# -------------------- POS ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/pos_press
+END_SOUND_ATTACHMENT
+
+# -------------------- TERR ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_efis_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/terr_press
+END_SOUND_ATTACHMENT
+
+# -------------------- FPV ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/fpv_press
+END_SOUND_ATTACHMENT
+
+# -------------------- MTRS ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.303 1.212 -16.135
+	EVENT_CMND_HOLD_CUE laminar/B738/EFIS_control/fo/push_button/mtrs_press
+END_SOUND_ATTACHMENT
+
+# Switches: main panel 
+#############################################################################################
+
+# -------------------- Clock chr ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_clock_hold
+	VEH_XYZ -0.676 0.936 -16.420
+	EVENT_START_COND laminar/B738/clock/captain/chr == 1
+	CUE_TRIGGER_COND laminar/B738/clock/captain/chr == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Clock mode ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_clock
+	VEH_XYZ -0.676 0.936 -16.420
+	EVENT_START_COND ABS_DELTA=laminar/B738/clock/chrono_display_mode_capt > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/clock/chrono_display_mode_capt == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Clock reset ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_clock_hold
+	VEH_XYZ -0.676 0.936 -16.420
+	EVENT_START_COND laminar/B738/clock/captain/reset == 1
+	CUE_TRIGGER_COND laminar/B738/clock/captain/reset == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Clock et ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_clock_hold
+	VEH_XYZ -0.676 0.936 -16.420
+	EVENT_START_COND laminar/B738/clock/captain/et == 1
+	CUE_TRIGGER_COND laminar/B738/clock/captain/et == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- AP discon test 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ -0.244 1.048 -16.439
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/ap_discon_test1 > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/ap_discon_test1 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Light test ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ -0.244 1.048 -16.439
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/bright_test > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/bright_test == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- N1 set mode ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_small
+	VEH_XYZ -0.029 1.063 -16.420
+	EVENT_START_COND ABS_DELTA=laminar/B738/knobs/n1_set_mode_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/knobs/n1_set_mode_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- N1 set pos ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.029 1.063 -16.420
+	EVENT_START_COND ABS_DELTA=laminar/B738/knobs/n1_set_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/knobs/n1_set_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Autobrake ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_white
+	VEH_XYZ 0.046 1.033 -16.443
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/switches/auto_brake_level > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/switches/auto_brake_level == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- AP discon test 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal_small
+	VEH_XYZ 0.323 1.036 -16.432
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/ap_discon_test2 > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/ap_discon_test2 == 0
+END_SOUND_ATTACHMENT
+
+# Switches: FMC 
+#############################################################################################
+
+# -------------------- FMC 1 side key 1 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_1l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 1 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_1r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 2 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_2l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 2 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_2r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 3 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_3l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 3 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_3r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 4 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_4l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 4 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_4r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 5 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_5l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 5 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_5r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 6 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_6l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 side key 6 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS/ls_6r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key index ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/index
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key fpln ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/fpln
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key clb ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/clb
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key crz ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/crz
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key des ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/des
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key dir_intc ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/dir_intc
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key legs ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/legs
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key dep_arr ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/dep_arr
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key hold ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/hold
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key prog ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/prog
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key exec ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/exec
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key fix ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/fix
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key navrad ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/navrad
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key prev ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/prev
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key next ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/next
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_clear ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_clear
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_delete ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_delete
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_space ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_space
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_slash ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_slash
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_minus ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_minus
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_period ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_period
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_0 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_0
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_1
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_2
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_3
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_4 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_4
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_5 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_5
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_6 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_6
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_7 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_7
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_8 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_8
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_9 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_9
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_A ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_A
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_B ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_B
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_C ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_C
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_D ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_D
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_E ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_E
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_F ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_F
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_G ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_G
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_H ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_H
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_I ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_I
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_J ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_J
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_K ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_K
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_L ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_L
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_M ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_M
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_N ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_N
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_O ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_O
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_P ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_P
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_Q ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_Q
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_R ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_R
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_S ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_S
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_T ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_T
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_U ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_U
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_V ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_V
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_W ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_W
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_X ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_X
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_Y ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_Y
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 1 main key key_Z ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ -0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS/key_Z
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 1 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_1l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 1 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_1r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 2 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_2l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 2 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_2r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 3 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_3l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 3 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_3r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 4 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_4l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 4 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_4r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 5 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_5l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 5 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_5r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 6 l ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_6l
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 side key 6 r ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.183 0.791 -16.332
+	EVENT_CMND_HOLD_CUE sim/FMS2/ls_6r
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key index ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/index
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key fpln ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/fpln
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key clb ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/clb
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key crz ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/crz
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key des ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/des
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key dir_intc ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/dir_intc
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key legs ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/legs
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key dep_arr ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/dep_arr
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key hold ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/hold
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key prog ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/prog
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key exec ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/exec
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key fix ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/fix
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key navrad ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/navrad
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key prev ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/prev
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key next ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/next
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_clear ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_clear
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_delete ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_delete
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_space ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_space
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_slash ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_slash
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_minus ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_minus
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_period ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_period
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_0 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_0
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_1
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_2
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_3
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_4 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_4
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_5 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_5
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_6 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_6
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_7 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_7
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_8 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_8
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_9 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_9
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_A ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_A
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_B ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_B
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_C ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_C
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_D ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_D
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_E ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_E
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_F ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_F
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_G ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_G
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_H ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_H
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_I ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_I
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_J ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_J
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_K ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_K
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_L ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_L
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_M ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_M
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_N ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_N
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_O ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_O
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_P ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_P
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_Q ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_Q
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_R ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_R
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_S ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_S
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_T ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_T
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_U ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_U
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_V ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_V
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_W ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_W
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_X ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_X
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_Y ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_Y
+END_SOUND_ATTACHMENT
+
+# -------------------- FMC 2 main key key_Z ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_main_hold
+	VEH_XYZ 0.186 0.712 -16.238
+	EVENT_CMND_HOLD_CUE sim/FMS2/key_Z
+END_SOUND_ATTACHMENT
+
+# Switches: Fire 
+#############################################################################################
+
+# -------------------- Fire test ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_white_small
+	VEH_XYZ -0.116 0.619 -15.811
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/fire_test > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/fire_test == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Extinguisher test ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_metal
+	VEH_XYZ 0.106 0.576 -15.835
+	EVENT_START_COND ABS_DELTA=laminar/B738/toggle_switch/extinguisher_circuit_test > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/toggle_switch/extinguisher_circuit_test == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fire handle 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/fire_handle_pull_push
+	VEH_XYZ -0.081 0.625 -15.822
+	EVENT_START_COND DELTA=laminar/B738/fire/engine01/ext_switch/pos_arm > 0
+	CUE_TRIGGER_COND DELTA=laminar/B738/fire/engine01/ext_switch/pos_arm < 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/fire_handle_rotate
+	VEH_XYZ -0.081 0.625 -15.822
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/engine/actuators/fire_extinguisher_on[0] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/engine/actuators/fire_extinguisher_on[0] == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fire handle APU ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/fire_handle_pull_push
+	VEH_XYZ 0.000 0.625 -15.822
+	EVENT_START_COND DELTA=laminar/B738/fire/apu/ext_switch/pos_arm > 0
+	CUE_TRIGGER_COND DELTA=laminar/B738/fire/apu/ext_switch/pos_arm < 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/fire_handle_rotate
+	VEH_XYZ 0.000 0.625 -15.822
+	EVENT_START_COND ABS_DELTA=laminar/B738/fire/apu/ext_on > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/fire/apu/ext_on == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Fire handle 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/fire_handle_pull_push
+	VEH_XYZ 0.081 0.625 -15.822
+	EVENT_START_COND DELTA=laminar/B738/fire/engine02/ext_switch/pos_arm > 0
+	CUE_TRIGGER_COND DELTA=laminar/B738/fire/engine02/ext_switch/pos_arm < 0
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/fire_handle_rotate
+	VEH_XYZ -0.081 0.625 -15.822
+	EVENT_START_COND ABS_DELTA=sim/cockpit2/engine/actuators/fire_extinguisher_on[1] > 0
+	EVENT_END_COND ABS_DELTA=sim/cockpit2/engine/actuators/fire_extinguisher_on[1] == 0
+END_SOUND_ATTACHMENT
+
+# Switches: Pedestal 
+#############################################################################################
+
+# -------------------- Cargo fire test ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ -0.051 0.674 -15.742
+	EVENT_START_COND DELTA=laminar/B738/push_botton/cargo_fire_test > 0
+	CUE_TRIGGER_COND DELTA=laminar/B738/push_botton/cargo_fire_test < 0
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L sel vhf 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/vhf_1/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L sel vhf 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/vhf_2/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L sel vhf 3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/vhf_3/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L sel hf 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/hf_1/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L sel am ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/am/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L sel hf 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/hf_2/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L xfer ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/freq_txfr/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L on/off ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_L/off_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L hf sens ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_START_COND ABS_DELTA=laminar/B738/comm/rtp_L/hf_sens_ctrl/rheostat > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/comm/rtp_L/hf_sens_ctrl/rheostat == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L freq mhz ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_L/freq_MHz/sel_dial_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_L/freq_MHz/sel_dial_dn
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP L freq khz ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_L/freq_khz/sel_dial_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.150 0.601 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_L/freq_khz/sel_dial_dn
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav1 xfer ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ -0.114 0.614 -15.627
+	EVENT_CMND_HOLD_CUE sim/radios/nav1_standy_flip
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav1 coarse ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ -0.114 0.614 -15.627
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav1_coarse_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ -0.114 0.614 -15.627
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav1_coarse_down
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav1 fine ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.114 0.614 -15.627
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav1_fine_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ -0.114 0.614 -15.627
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav1_fine_down
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/capt/mic_push1
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/capt/mic_push2
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/capt/mic_push3
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic int ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/capt/mic_push4
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic cabin ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/capt/mic_push5
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic pa ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/capt/mic_push6
+END_SOUND_ATTACHMENT
+
+# -------------------- Com 1 sel ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_sel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_com1 == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_desel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_com1 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Com 2 sel ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_sel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_com2 == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_desel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_com2 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav 1 sel ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_sel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_nav1 == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_desel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_nav1 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav 2 sel ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_sel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_nav2 == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_desel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_selection_nav2 == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- Mkr sel ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_sel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_marker_enabled == 1
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_audio_desel
+	VEH_XYZ -0.154 0.618 -15.546
+	EVENT_START_COND sim/cockpit2/radios/actuators/audio_marker_enabled == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- XPDR sel ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/sel_small
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_START_COND ABS_DELTA=laminar/B738/knob/transponder_pos > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/knob/transponder_pos == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- XPDR thousands ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_thousands_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_thousands_down
+END_SOUND_ATTACHMENT
+
+# -------------------- XPDR hundreds ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_hundreds_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_hundreds_down
+END_SOUND_ATTACHMENT
+
+# -------------------- XPDR tens ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_tens_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_tens_down
+END_SOUND_ATTACHMENT
+
+# -------------------- XPDR ones ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_ones_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_STOP sim/transponder/transponder_ones_down
+END_SOUND_ATTACHMENT
+
+# -------------------- XPDR ident ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_round_hold
+	VEH_XYZ 0.153 0.610 -15.761
+	EVENT_CMND_HOLD_CUE laminar/B738/push_button/transponder_ident_dn
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R sel vhf 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/vhf_1/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R sel vhf 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/vhf_2/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R sel vhf 3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/vhf_3/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R sel hf 1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/hf_1/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R sel am ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/am/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R sel hf 2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/hf_2/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R xfer ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/freq_txfr/sel_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R on/off ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_CUE laminar/B738/rtp_R/off_switch
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R hf sens ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_START_COND ABS_DELTA=laminar/B738/comm/rtp_R/hf_sens_ctrl/rheostat > 0
+	EVENT_END_COND ABS_DELTA=laminar/B738/comm/rtp_R/hf_sens_ctrl/rheostat == 0
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R freq mhz ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_R/freq_MHz/sel_dial_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_R/freq_MHz/sel_dial_dn
+END_SOUND_ATTACHMENT
+
+# -------------------- RTP R freq khz ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_R/freq_khz/sel_dial_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.153 0.611 -15.689
+	EVENT_CMND_HOLD_STOP laminar/B738/rtp_R/freq_khz/sel_dial_dn
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav2 xfer ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_fmc_lat_hold
+	VEH_XYZ 0.166 0.627 -15.637
+	EVENT_CMND_HOLD_CUE sim/radios/nav2_standy_flip
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav2 coarse ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.166 0.627 -15.637
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav2_coarse_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_med_single
+	VEH_XYZ 0.166 0.627 -15.637
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav2_coarse_down
+END_SOUND_ATTACHMENT
+
+# -------------------- Nav2 fine ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.166 0.627 -15.637
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav2_fine_up
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/rot_small_single
+	VEH_XYZ 0.166 0.627 -15.637
+	EVENT_CMND_HOLD_STOP sim/radios/stby_nav2_fine_down
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf1 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ 0.144 0.598 -15.540
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/fo/mic_push1
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf2 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ 0.144 0.598 -15.540
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/fo/mic_push2
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic vhf3 ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ 0.144 0.598 -15.540
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/fo/mic_push3
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic int ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ 0.144 0.598 -15.540
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/fo/mic_push4
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic cabin ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ 0.144 0.598 -15.540
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/fo/mic_push5
+END_SOUND_ATTACHMENT
+
+# -------------------- Mic pa ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/pb_mic_hold
+	VEH_XYZ 0.144 0.598 -15.540
+	EVENT_CMND_HOLD_CUE laminar/B738/audio/fo/mic_push6
+END_SOUND_ATTACHMENT
+
+# -------------------- Aileron trim ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_ailtrim_hold
+	VEH_XYZ -0.039 0.640 -15.359
+	EVENT_CMND_HOLD_CUE sim/flight_controls/aileron_trim_left
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_ailtrim_hold
+	VEH_XYZ -0.039 0.640 -15.359
+	EVENT_CMND_HOLD_CUE sim/flight_controls/aileron_trim_right
+END_SOUND_ATTACHMENT
+
+# -------------------- Rudder trim ---------------------
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_ruddtrim_hold
+	VEH_XYZ 0.032 0.611 -15.359
+	EVENT_CMND_HOLD_CUE sim/flight_controls/rudder_trim_left
+END_SOUND_ATTACHMENT
+BEGIN_SOUND_ATTACHMENT
+	EVENT_NAME /b738/equipment/switches/switch_ruddtrim_hold
+	VEH_XYZ 0.032 0.611 -15.359
+	EVENT_CMND_HOLD_CUE sim/flight_controls/rudder_trim_right
+END_SOUND_ATTACHMENT

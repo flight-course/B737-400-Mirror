@@ -1,0 +1,10 @@
+# DVC tracked files
+/liveries/FC PAINT KIT B737-400.zip
+/objects/CabinPAX.obj
+/objects/GPU_CART.obj
+/objects/Overhead.obj
+
+# DVC local config (may contain secrets)
+.dvc/config.local
+.DS_Store
+Flight Course B737-400/

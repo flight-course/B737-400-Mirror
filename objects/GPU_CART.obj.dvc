@@ -1,0 +1,5 @@
+outs:
+- md5: 99818008d3fb73fa6d5eb659675b9d29
+  size: 87195848
+  hash: md5
+  path: GPU_CART.obj

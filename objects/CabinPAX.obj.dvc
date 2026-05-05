@@ -1,0 +1,5 @@
+outs:
+- md5: 2b8a42eb3c00b36dbbaf217e7d996f7c
+  size: 153323142
+  hash: md5
+  path: CabinPAX.obj
