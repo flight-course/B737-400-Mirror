@@ -92,16 +92,7 @@ jobs:
               echo "$modified_file|$checksum_decimal" >> release/skunkcrafts_updater_whitelist.txt
             done
 
-      - name: Push to release branch
-        run: |
-          TAG=${{ steps.tag.outputs.TAG }}
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
 
-          git checkout -b release
-          git add release/
-          git commit -m "release ${TAG}"
-          git push -f origin release
 
       - name: Create GitHub Release (with update zip)
         if: steps.partial.outputs.has_update == 'true'
