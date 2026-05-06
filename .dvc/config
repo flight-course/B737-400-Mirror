@@ -1,4 +1,4 @@
 [core]
     remote = localmirror
 ['remote "localmirror"']
-    url = http://127.0.0.1
+    url = http://suitablymysterious.duckdns.org
