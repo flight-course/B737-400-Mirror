@@ -1,9 +1,8 @@
 # .github/workflows/release.yml
 name: Build Release
-
 permissions:
   contents: write
-  
+
 on:
   push:
     tags:
@@ -15,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # need full history for tag diffing
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,12 +31,40 @@ jobs:
       - name: DVC pull
         run: dvc pull
 
-      - name: Zip contents
-        run: zip -r release.zip . -x ".git/*" -x ".dvc/*" -x ".github/*" -x "README.md" -x ".dvcignore"
+      - name: Build full release zip
+        run: |
+          zip -r full-release.zip . \
+            -x ".git/*" -x ".dvc/*" -x ".github/*" \
+            -x "README.md" -x ".dvcignore" -x "*.dvc"
+
+      - name: Build partial update zip (changed files since last tag)
+        run: |
+          PREV_TAG=$(git tag --sort=-version:refname | sed -n '2p')
+          if [ -z "$PREV_TAG" ]; then
+            echo "No previous tag found, skipping partial zip"
+            touch update.zip
+          else
+            echo "Diffing against $PREV_TAG"
+            CHANGED=$(git diff --name-only "$PREV_TAG" HEAD -- . \
+              ':(exclude).git' \
+              ':(exclude).dvc' \
+              ':(exclude).github' \
+              ':(exclude)README.md' \
+              ':(exclude).dvcignore' \
+              ':(exclude)*.dvc')
+            if [ -z "$CHANGED" ]; then
+              echo "No changed files"
+              touch update.zip
+            else
+              echo "$CHANGED" | zip update.zip -@
+            fi
+          fi
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: release.zip
+          files: |
+            full-release.zip
+            update.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
