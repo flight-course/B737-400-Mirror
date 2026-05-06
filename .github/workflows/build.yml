@@ -15,15 +15,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # need full history for tag diffing
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install DVC
-        run: pip install dvc
+      - name: Install DVC and crc32
+        run: |
+          pip install dvc
+          sudo apt-get install -y libarchive-zip-perl
 
       - name: Set DVC remote for CI
         run: dvc remote modify localmirror url http://suitablymysterious.duckdns.org
@@ -31,11 +33,16 @@ jobs:
       - name: DVC pull
         run: dvc pull
 
+      - name: Get tag
+        id: tag
+        run: echo "TAG=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+
       - name: Build full release zip
         run: |
           zip -r full-release.zip . \
             -x ".git/*" -x ".dvc/*" -x ".github/*" \
-            -x "README.md" -x ".dvcignore" -x "*.dvc"
+            -x "README.md" -x ".dvcignore" -x "*.dvc" \
+            -x "skunkcrafts_updater.cfg" -x "skunkcrafts_updater_beta.cfg"
 
       - name: Build partial update zip (changed files since last tag)
         id: partial
@@ -48,7 +55,8 @@ jobs:
             echo "Diffing against $PREV_TAG"
             CHANGED=$(git diff --name-only "$PREV_TAG" HEAD -- . \
               ':(exclude).git' ':(exclude).dvc' ':(exclude).github' \
-              ':(exclude)README.md' ':(exclude).dvcignore' ':(exclude)*.dvc')
+              ':(exclude)README.md' ':(exclude).dvcignore' ':(exclude)*.dvc' \
+              ':(exclude)skunkcrafts_updater.cfg' ':(exclude)skunkcrafts_updater_beta.cfg')
             if [ -z "$CHANGED" ]; then
               echo "No changed files"
               echo "has_update=false" >> $GITHUB_OUTPUT
@@ -58,7 +66,44 @@ jobs:
             fi
           fi
 
-      - name: Create GitHub Release (with update)
+      - name: Prepare release branch contents
+        run: |
+          TAG=${{ steps.tag.outputs.TAG }}
+
+          # Copy everything except git/dvc/github metadata into release/
+          mkdir -p release
+          rsync -av --exclude='.git' --exclude='.dvc' --exclude='.github' \
+            --exclude='README.md' --exclude='.dvcignore' --exclude='*.dvc' \
+            --exclude='release' \
+            . release/
+
+          # Stamp version into cfg files
+          sed -i "s/REPLACE_ME/${TAG}/g" release/skunkcrafts_updater.cfg
+          sed -i "s/REPLACE_ME/${TAG}/g" release/skunkcrafts_updater_beta.cfg
+
+          # Generate whitelist (filepath|crc32_decimal) for all non-skunkcrafts files
+          rm -f release/skunkcrafts_updater_whitelist.txt
+          find release -type f \
+            ! \( -name '*skunkcrafts_updater*' -o -path '*skunkcrafts_updater*' \) \
+            -print0 | while IFS= read -r -d '' file; do
+              checksum_hex=$(crc32 "$file")
+              checksum_decimal=$((16#$checksum_hex))
+              modified_file="${file#release/}"
+              echo "$modified_file|$checksum_decimal" >> release/skunkcrafts_updater_whitelist.txt
+            done
+
+      - name: Push to release branch
+        run: |
+          TAG=${{ steps.tag.outputs.TAG }}
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git checkout -b release
+          git add release/
+          git commit -m "release ${TAG}"
+          git push -f origin release
+
+      - name: Create GitHub Release (with update zip)
         if: steps.partial.outputs.has_update == 'true'
         uses: softprops/action-gh-release@v2
         with:
@@ -68,7 +113,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create GitHub Release (no update)
+      - name: Create GitHub Release (no update zip)
         if: steps.partial.outputs.has_update != 'true'
         uses: softprops/action-gh-release@v2
         with:
