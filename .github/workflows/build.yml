@@ -1,0 +1,38 @@
+# .github/workflows/release.yml
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install DVC
+        run: pip install dvc
+
+      - name: Set DVC remote for CI
+        run: dvc remote modify localmirror url http://suitablymysterious.duckdns.org
+
+      - name: DVC pull
+        run: dvc pull
+
+      - name: Zip contents
+        run: zip -r release.zip . -x ".git/*" -x ".dvc/*" -x ".github/*" -x "README.md"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

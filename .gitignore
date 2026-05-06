@@ -7,4 +7,6 @@
 # DVC local config (may contain secrets)
 .dvc/config.local
 .DS_Store
-Flight Course B737-400/
+
+.dvc/cache
+.dvc/tmp
