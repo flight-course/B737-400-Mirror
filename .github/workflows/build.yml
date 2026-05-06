@@ -1,6 +1,9 @@
 # .github/workflows/release.yml
 name: Build Release
 
+permissions:
+  contents: write
+  
 on:
   push:
     tags:
@@ -28,7 +31,7 @@ jobs:
         run: dvc pull
 
       - name: Zip contents
-        run: zip -r release.zip . -x ".git/*" -x ".dvc/*" -x ".github/*" -x "README.md"
+        run: zip -r release.zip . -x ".git/*" -x ".dvc/*" -x ".github/*" -x "README.md" -x ".dvcignore"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
