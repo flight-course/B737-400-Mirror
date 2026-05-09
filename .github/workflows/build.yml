@@ -63,6 +63,8 @@ jobs:
             --exclude='.git' --exclude='.dvc' --exclude='.github' \
             --exclude='README.md' --exclude='.dvcignore' --exclude='*.dvc' \
             --exclude='skunkcrafts_release' \
+            --exclude='full-release.zip' \
+            --exclude='update.zip' \
             . skunkcrafts_release/
 
           sed -i "s/REPLACE_ME/${TAG}/g" skunkcrafts_release/skunkcrafts_updater.cfg
