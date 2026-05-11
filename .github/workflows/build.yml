@@ -40,8 +40,10 @@ jobs:
           if [ -z "$PREV_TAG" ]; then
             echo "No previous tag, skipping partial zip"
             echo "has_update=false" >> $GITHUB_OUTPUT
+            echo "prev_tag=" >> $GITHUB_OUTPUT
           else
             echo "Diffing against $PREV_TAG"
+            echo "prev_tag=$PREV_TAG" >> $GITHUB_OUTPUT
             CHANGED=$(git diff --name-only "$PREV_TAG" HEAD -- . \
               ':(exclude).git' ':(exclude).dvc' ':(exclude).github' \
               ':(exclude)README.md' ':(exclude).dvcignore' ':(exclude)*.dvc')
@@ -57,7 +59,6 @@ jobs:
         run: |
           TAG=${{ steps.tag.outputs.TAG }}
           mkdir -p skunkcrafts_release
-
           rsync -av \
             --exclude='.git' --exclude='.dvc' --exclude='.github' \
             --exclude='README.md' --exclude='.dvcignore' --exclude='*.dvc' \
@@ -65,10 +66,8 @@ jobs:
             --exclude='full-release.zip' \
             --exclude='update.zip' \
             . skunkcrafts_release/
-
           sed -i "s/REPLACE_ME/${TAG}/g" skunkcrafts_release/skunkcrafts_updater.cfg
           sed -i "s/REPLACE_ME/${TAG}/g" skunkcrafts_release/skunkcrafts_updater_beta.cfg
-
           rm -f skunkcrafts_release/skunkcrafts_updater_whitelist.txt
           find skunkcrafts_release -type f \
             ! \( -name '*skunkcrafts_updater*' -o -path '*skunkcrafts_updater*' \) \
@@ -78,17 +77,19 @@ jobs:
               modified_file="${file#skunkcrafts_release/}"
               echo "$modified_file|$checksum_decimal" >> skunkcrafts_release/skunkcrafts_updater_whitelist.txt
             done
-
           cd skunkcrafts_release && zip -r ../skunkcrafts_assets.zip . && cd ..
+      - name: Create GitHub Release (with update zip)
+        if: steps.partial.outputs.has_update == 'true'
+        uses: softprops/action-gh-release@v2
         with:
           body: |
             If you are downloading for the first time, please download **full-release.zip**, otherwise, if updating from **${{ steps.partial.outputs.prev_tag }}**, download **update.zip**. Do not touch skunkcrafts_assets.zip.
           files: |
             full-release.zip
             update.zip
-            skunkcrafts_assets.zip        env:
+            skunkcrafts_assets.zip
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create GitHub Release (no update zip)
         if: steps.partial.outputs.has_update != 'true'
         uses: softprops/action-gh-release@v2
