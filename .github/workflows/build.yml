@@ -80,18 +80,13 @@ jobs:
             done
 
           cd skunkcrafts_release && zip -r ../skunkcrafts_assets.zip . && cd ..
-
-- name: Create GitHub Release (with update zip)
-        if: steps.partial.outputs.has_update == 'true'
-        uses: softprops/action-gh-release@v2
         with:
           body: |
             If you are downloading for the first time, please download **full-release.zip**, otherwise, if updating from **${{ steps.partial.outputs.prev_tag }}**, download **update.zip**. Do not touch skunkcrafts_assets.zip.
           files: |
             full-release.zip
             update.zip
-            skunkcrafts_assets.zip
-        env:
+            skunkcrafts_assets.zip        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release (no update zip)
