@@ -33731,5 +33731,11 @@ IDX	27911
 	ANIM_rotate	-0.99999994	-0	-0	97.500015	97.500015
 	LIGHT_PARAM	airplane_generic_sp 0.20981359 14.71566 5.4061742 0.80000001 1 0.88 2 1.5 0.92387953
 	ANIM_end
+	# 1 Light: Point.009
+	ANIM_begin
+	ANIM_hide	0	0	sim/cockpit2/controls/parking_brake_ratio
+	# LIGHT: Point.009	weight: 10000
+	LIGHT_SPILL_CUSTOM -0.053885069 2.9966443 -14.755668 1 0 0 1 0.1 0 0 0 1 sim/cockpit2/controls/parking_brake_ratio
+	ANIM_end
 
 # Build with Blender 3.6.0 (build b'c7fc78b81ecb'). Exported with XPlane2Blender 4.4.0-rc.1+121.20250701124556
