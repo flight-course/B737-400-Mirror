@@ -1,4 +1,6 @@
 [core]
-    remote = localmirror
+    remote = webremote
 ['remote "localmirror"']
+    url = http://suitablymysterious.duckdns.org
+['remote "webremote"']
     url = http://suitablymysterious.duckdns.org
