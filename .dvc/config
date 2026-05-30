@@ -1,4 +1,8 @@
 [core]
     remote = localmirror
+[cache]
+    type = copy
 ['remote "localmirror"']
     url = http://suitablymysterious.duckdns.org
+['remote "sshremote"']
+    url = ssh://ubuntu@oracle-caddy/srv/dvc-public-remote
